@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 
-[[ -d "${PREFIX}/tmp/rubytask" ]] && {
+if [[ ! -d "${PREFIX}/tmp" ]]; then
+    command mkdir -p "${PREFIX}/tmp"
+fi
+
+if [[ -d "${PREFIX}/tmp/rubytask" ]]; then
     command rm -rf "${PREFIX}/tmp/rubytask"
-}
+fi
 
 command git clone --depth 1 \
     'https://github.com/Zeronetsec/Rubytask' \
@@ -12,5 +16,3 @@ cd "${PREFIX}/tmp/rubytask" || exit 1
 command chmod +x -R "install.sh"
 command bash "install.sh"
 cd
-
-exit 0
