@@ -8,6 +8,10 @@ if [[ -d "${PREFIX}/tmp/rubytask" ]]; then
     command rm -rf "${PREFIX}/tmp/rubytask"
 fi
 
+if [[ -d "${PREFIX}/opt/rubytask" ]]; then
+    command rm -rf "${PREFIX}/opt/rubytask"
+fi
+
 command git clone --depth 1 \
     'https://github.com/Zeronetsec/Rubytask' \
     "${PREFIX}/tmp/rubytask"
